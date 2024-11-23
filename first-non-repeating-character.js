@@ -27,11 +27,11 @@ function firstNonRepeatingLetter(string) {
         }
         return acc
     }, {})
-    if (Object.values(newObject).indexOf(1) === -1) {
-        return ""
-    }
-    
+
+    let firstUniqueLetter = arrayOfStrings.find(letter => newObject[letter.toUpperCase()] === 1)
+    return firstUniqueLetter || ""
 }
+
 console.log(firstNonRepeatingLetter("stress"))
 console.log(firstNonRepeatingLetter("sTreSS"))
 console.log(firstNonRepeatingLetter("kkk"))
