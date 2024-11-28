@@ -33,6 +33,9 @@ function encrypt(text, n) {
         text = oddIndexes.join("") + evenIndexes.join("")
     }
     return text
+
+
+    
 }
 
 function decrypt(encryptedText, n) {
@@ -40,6 +43,7 @@ function decrypt(encryptedText, n) {
 
 console.log(encrypt("012345", 1))
 console.log(encrypt("012345", 2))
+console.log(encrypt("012345", 3))
 
 console.log(decrypt("135024", 1))
 console.log(decrypt("304152", 2))
