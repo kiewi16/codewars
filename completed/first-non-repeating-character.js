@@ -1,4 +1,4 @@
-// Write a function named first_non_repeating_letter† that takes a string input, and returns the first character that is not repeated anywhere in the string.
+// Write a function named first_non_repeating_letter that takes a string input, and returns the first character that is not repeated anywhere in the string.
 
 // For example, if given the input 'stress', the function should return 't', since the letter t only occurs once in the string, and occurs first in the string.
 
@@ -6,7 +6,7 @@
 
 // If a string contains all repeating characters, it should return an empty string ("");
 
-// † Note: the function is called firstNonRepeatingLetter for historical reasons, but your function should handle any Unicode character.
+// Note: the function is called firstNonRepeatingLetter for historical reasons, but your function should handle any Unicode character.
 
 
 // input: string
@@ -18,18 +18,19 @@
 // iterate through the array of strings and determine if there are any duplicates 
 
 function firstNonRepeatingLetter(string) {
-    let arrayOfStrings= string.toUpperCase().split("")
+    let arrayOfStrings= string.split("")
     let newObject = arrayOfStrings.reduce((acc, letter) => {
-        if (!acc[letter]) {
-            acc[letter] = 1
+        let uppercaseLetter = letter.toUpperCase()
+        if (!acc[uppercaseLetter]) {
+            acc[uppercaseLetter] = { count: 1, original: letter}
         } else {
-            acc[letter]+= 1
+            acc[uppercaseLetter].count += 1
         }
         return acc
     }, {})
 
-    let firstUniqueLetter = arrayOfStrings.find(letter => newObject[letter.toUpperCase()] === 1)
-    return firstUniqueLetter || ""
+    let firstUniqueLetter = arrayOfStrings.find(letter => newObject[letter.toUpperCase()].count === 1)
+    return firstUniqueLetter ? newObject[firstUniqueLetter.toUpperCase()].original : ""
 }
 
 console.log(firstNonRepeatingLetter("stress"))
