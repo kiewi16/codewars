@@ -33,7 +33,22 @@ function firstNonRepeatingLetter(string) {
     return firstUniqueLetter ? newObject[firstUniqueLetter.toUpperCase()].original : ""
 }
 
-console.log(firstNonRepeatingLetter("stress"))
-console.log(firstNonRepeatingLetter("sTreSS"))
-console.log(firstNonRepeatingLetter("kkk"))
-console.log(firstNonRepeatingLetter("moonmen"))
+// console.log(firstNonRepeatingLetter("stress"))
+// console.log(firstNonRepeatingLetter("sTreSS"))
+// console.log(firstNonRepeatingLetter("kkk"))
+// console.log(firstNonRepeatingLetter("moonmen"))
+
+function firstNonRepeatingLetter2(s) {
+    let str = s.toLowerCase();
+    for(let i = 0; i < str.length; i++) {
+      if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) {
+        console.log(str.indexOf(str[i]))
+        return s[i];
+      }
+    }
+    return "";
+  }
+console.log(firstNonRepeatingLetter2("stress"))
+console.log(firstNonRepeatingLetter2("sTreSS"))
+console.log(firstNonRepeatingLetter2("kkk"))
+console.log(firstNonRepeatingLetter2("moonmen"))
